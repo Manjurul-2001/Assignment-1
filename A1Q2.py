@@ -1,10 +1,11 @@
 import re 
-import numpy as np 
-file = open("regex-sum-42.txt")
-texts=file.read()
-for line in texts:
-    numbers=np.array(re.findall('[0-9]+',texts))
-    sum=0
-for i in numbers:
-    sum=sum+int(i)
-print(sum)
+fh = open("regex-sum-42.txt")
+intSum = 0
+for line in fh:
+    numbers=re.findall("[0-9]+", line)
+    if not numbers: continue
+    else:
+        for number in numbers:
+            intSum = intSum + int(number)
+
+print(intSum)
